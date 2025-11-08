@@ -1,0 +1,25 @@
+============================================================
+RESUMEN DEL GRAFO DE COOCURRENCIA
+============================================================
+
+Total de palabras clave analizadas: 15
+Total de abstracts procesados: 1536
+
+ESTADÍSTICAS DEL GRAFO:
+  - Nodos: 15
+  - Aristas: 105
+  - Densidad: 1.0000
+  - Componentes conexas: 1
+
+TOP 5 TÉRMINOS MÁS RELACIONADOS:
+  1. method: grado=14, fuerza=4341
+  2. analysis: grado=14, fuerza=2899
+  3. research: grado=14, fuerza=3218
+  4. model: grado=14, fuerza=4399
+  5. learning: grado=14, fuerza=2557
+
+COMPONENTES CONEXAS:
+  Componente 1: 15 términos
+    Términos: accuracy, algorithm, analysis, based, data, design, learning, method, model, research, results, students, study, teaching, time
+    Aristas: 105, Densidad: 1.0000
+

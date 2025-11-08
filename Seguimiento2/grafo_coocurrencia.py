@@ -200,7 +200,7 @@ pos = nx.spring_layout(G, k=1, iterations=50, seed=42)
 # Dibujar aristas (más gruesas si tienen mayor peso)
 edges = G.edges()
 weights = [G[u][v].get('weight', 1) for u, v in edges]
-nx.draw_networkx_edges(G, pos, width=[w * 0.5 for w in weights], 
+nx.draw_networkx_edges(G, pos, width=[w * 0.1 for w in weights], 
                        alpha=0.3, edge_color='gray')
 
 # Dibujar nodos (más grandes si tienen mayor grado)

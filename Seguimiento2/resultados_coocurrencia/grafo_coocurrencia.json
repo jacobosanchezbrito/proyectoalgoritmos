@@ -1,0 +1,471 @@
+{
+  "nodos": {
+    "method": {
+      "grado": 14
+    },
+    "analysis": {
+      "grado": 14
+    },
+    "research": {
+      "grado": 14
+    },
+    "model": {
+      "grado": 14
+    },
+    "learning": {
+      "grado": 14
+    },
+    "study": {
+      "grado": 14
+    },
+    "based": {
+      "grado": 14
+    },
+    "teaching": {
+      "grado": 14
+    },
+    "design": {
+      "grado": 14
+    },
+    "students": {
+      "grado": 14
+    },
+    "results": {
+      "grado": 14
+    },
+    "time": {
+      "grado": 14
+    },
+    "data": {
+      "grado": 14
+    },
+    "accuracy": {
+      "grado": 14
+    },
+    "algorithm": {
+      "grado": 14
+    }
+  },
+  "aristas": {
+    "method-analysis": {
+      "peso": 296,
+      "count": 296
+    },
+    "method-research": {
+      "peso": 317,
+      "count": 317
+    },
+    "method-model": {
+      "peso": 452,
+      "count": 452
+    },
+    "method-learning": {
+      "peso": 247,
+      "count": 247
+    },
+    "method-study": {
+      "peso": 392,
+      "count": 392
+    },
+    "method-based": {
+      "peso": 450,
+      "count": 450
+    },
+    "method-teaching": {
+      "peso": 98,
+      "count": 98
+    },
+    "method-design": {
+      "peso": 245,
+      "count": 245
+    },
+    "method-students": {
+      "peso": 88,
+      "count": 88
+    },
+    "method-results": {
+      "peso": 448,
+      "count": 448
+    },
+    "method-data": {
+      "peso": 437,
+      "count": 437
+    },
+    "method-time": {
+      "peso": 302,
+      "count": 302
+    },
+    "method-algorithm": {
+      "peso": 253,
+      "count": 253
+    },
+    "method-accuracy": {
+      "peso": 316,
+      "count": 316
+    },
+    "analysis-research": {
+      "peso": 233,
+      "count": 233
+    },
+    "analysis-model": {
+      "peso": 288,
+      "count": 288
+    },
+    "analysis-time": {
+      "peso": 174,
+      "count": 174
+    },
+    "analysis-study": {
+      "peso": 299,
+      "count": 299
+    },
+    "analysis-algorithm": {
+      "peso": 145,
+      "count": 145
+    },
+    "analysis-design": {
+      "peso": 159,
+      "count": 159
+    },
+    "analysis-data": {
+      "peso": 304,
+      "count": 304
+    },
+    "analysis-learning": {
+      "peso": 166,
+      "count": 166
+    },
+    "analysis-based": {
+      "peso": 260,
+      "count": 260
+    },
+    "analysis-teaching": {
+      "peso": 65,
+      "count": 65
+    },
+    "analysis-students": {
+      "peso": 74,
+      "count": 74
+    },
+    "analysis-results": {
+      "peso": 269,
+      "count": 269
+    },
+    "analysis-accuracy": {
+      "peso": 167,
+      "count": 167
+    },
+    "research-model": {
+      "peso": 332,
+      "count": 332
+    },
+    "research-time": {
+      "peso": 197,
+      "count": 197
+    },
+    "research-study": {
+      "peso": 325,
+      "count": 325
+    },
+    "research-results": {
+      "peso": 298,
+      "count": 298
+    },
+    "research-algorithm": {
+      "peso": 163,
+      "count": 163
+    },
+    "research-design": {
+      "peso": 199,
+      "count": 199
+    },
+    "research-data": {
+      "peso": 317,
+      "count": 317
+    },
+    "research-learning": {
+      "peso": 179,
+      "count": 179
+    },
+    "research-based": {
+      "peso": 294,
+      "count": 294
+    },
+    "research-teaching": {
+      "peso": 84,
+      "count": 84
+    },
+    "research-students": {
+      "peso": 95,
+      "count": 95
+    },
+    "research-accuracy": {
+      "peso": 185,
+      "count": 185
+    },
+    "model-learning": {
+      "peso": 255,
+      "count": 255
+    },
+    "model-study": {
+      "peso": 424,
+      "count": 424
+    },
+    "model-based": {
+      "peso": 444,
+      "count": 444
+    },
+    "model-teaching": {
+      "peso": 87,
+      "count": 87
+    },
+    "model-design": {
+      "peso": 238,
+      "count": 238
+    },
+    "model-students": {
+      "peso": 94,
+      "count": 94
+    },
+    "model-results": {
+      "peso": 447,
+      "count": 447
+    },
+    "model-data": {
+      "peso": 456,
+      "count": 456
+    },
+    "model-time": {
+      "peso": 301,
+      "count": 301
+    },
+    "model-algorithm": {
+      "peso": 248,
+      "count": 248
+    },
+    "model-accuracy": {
+      "peso": 333,
+      "count": 333
+    },
+    "learning-study": {
+      "peso": 221,
+      "count": 221
+    },
+    "learning-based": {
+      "peso": 234,
+      "count": 234
+    },
+    "learning-teaching": {
+      "peso": 102,
+      "count": 102
+    },
+    "learning-design": {
+      "peso": 140,
+      "count": 140
+    },
+    "learning-students": {
+      "peso": 116,
+      "count": 116
+    },
+    "learning-results": {
+      "peso": 208,
+      "count": 208
+    },
+    "learning-data": {
+      "peso": 254,
+      "count": 254
+    },
+    "learning-algorithm": {
+      "peso": 129,
+      "count": 129
+    },
+    "learning-time": {
+      "peso": 142,
+      "count": 142
+    },
+    "learning-accuracy": {
+      "peso": 164,
+      "count": 164
+    },
+    "study-based": {
+      "peso": 365,
+      "count": 365
+    },
+    "study-teaching": {
+      "peso": 95,
+      "count": 95
+    },
+    "study-design": {
+      "peso": 233,
+      "count": 233
+    },
+    "study-students": {
+      "peso": 134,
+      "count": 134
+    },
+    "study-results": {
+      "peso": 408,
+      "count": 408
+    },
+    "study-algorithm": {
+      "peso": 207,
+      "count": 207
+    },
+    "study-data": {
+      "peso": 376,
+      "count": 376
+    },
+    "study-time": {
+      "peso": 244,
+      "count": 244
+    },
+    "study-accuracy": {
+      "peso": 245,
+      "count": 245
+    },
+    "based-teaching": {
+      "peso": 87,
+      "count": 87
+    },
+    "based-design": {
+      "peso": 241,
+      "count": 241
+    },
+    "based-students": {
+      "peso": 99,
+      "count": 99
+    },
+    "based-results": {
+      "peso": 409,
+      "count": 409
+    },
+    "based-data": {
+      "peso": 400,
+      "count": 400
+    },
+    "based-accuracy": {
+      "peso": 275,
+      "count": 275
+    },
+    "based-algorithm": {
+      "peso": 256,
+      "count": 256
+    },
+    "based-time": {
+      "peso": 290,
+      "count": 290
+    },
+    "teaching-design": {
+      "peso": 66,
+      "count": 66
+    },
+    "teaching-students": {
+      "peso": 90,
+      "count": 90
+    },
+    "teaching-results": {
+      "peso": 79,
+      "count": 79
+    },
+    "teaching-data": {
+      "peso": 89,
+      "count": 89
+    },
+    "teaching-accuracy": {
+      "peso": 37,
+      "count": 37
+    },
+    "teaching-time": {
+      "peso": 51,
+      "count": 51
+    },
+    "teaching-algorithm": {
+      "peso": 38,
+      "count": 38
+    },
+    "design-students": {
+      "peso": 76,
+      "count": 76
+    },
+    "design-results": {
+      "peso": 214,
+      "count": 214
+    },
+    "design-data": {
+      "peso": 221,
+      "count": 221
+    },
+    "design-accuracy": {
+      "peso": 118,
+      "count": 118
+    },
+    "design-algorithm": {
+      "peso": 119,
+      "count": 119
+    },
+    "design-time": {
+      "peso": 147,
+      "count": 147
+    },
+    "students-results": {
+      "peso": 99,
+      "count": 99
+    },
+    "students-time": {
+      "peso": 48,
+      "count": 48
+    },
+    "students-data": {
+      "peso": 96,
+      "count": 96
+    },
+    "students-accuracy": {
+      "peso": 36,
+      "count": 36
+    },
+    "students-algorithm": {
+      "peso": 37,
+      "count": 37
+    },
+    "results-data": {
+      "peso": 376,
+      "count": 376
+    },
+    "results-algorithm": {
+      "peso": 233,
+      "count": 233
+    },
+    "results-time": {
+      "peso": 270,
+      "count": 270
+    },
+    "results-accuracy": {
+      "peso": 292,
+      "count": 292
+    },
+    "time-data": {
+      "peso": 302,
+      "count": 302
+    },
+    "time-algorithm": {
+      "peso": 189,
+      "count": 189
+    },
+    "time-accuracy": {
+      "peso": 232,
+      "count": 232
+    },
+    "data-accuracy": {
+      "peso": 296,
+      "count": 296
+    },
+    "data-algorithm": {
+      "peso": 232,
+      "count": 232
+    },
+    "accuracy-algorithm": {
+      "peso": 193,
+      "count": 193
+    }
+  }
+}

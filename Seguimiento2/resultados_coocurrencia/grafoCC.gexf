@@ -1,0 +1,329 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2025-11-03">
+    <creator>NetworkX 3.5</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <nodes>
+      <node id="method-analysis" label="method-analysis" />
+      <node id="peso" label="peso" />
+      <node id="count" label="count" />
+      <node id="method-research" label="method-research" />
+      <node id="method-model" label="method-model" />
+      <node id="method-learning" label="method-learning" />
+      <node id="method-study" label="method-study" />
+      <node id="method-based" label="method-based" />
+      <node id="method-teaching" label="method-teaching" />
+      <node id="method-design" label="method-design" />
+      <node id="method-students" label="method-students" />
+      <node id="method-results" label="method-results" />
+      <node id="method-data" label="method-data" />
+      <node id="method-time" label="method-time" />
+      <node id="method-algorithm" label="method-algorithm" />
+      <node id="method-accuracy" label="method-accuracy" />
+      <node id="analysis-research" label="analysis-research" />
+      <node id="analysis-model" label="analysis-model" />
+      <node id="analysis-time" label="analysis-time" />
+      <node id="analysis-study" label="analysis-study" />
+      <node id="analysis-algorithm" label="analysis-algorithm" />
+      <node id="analysis-design" label="analysis-design" />
+      <node id="analysis-data" label="analysis-data" />
+      <node id="analysis-learning" label="analysis-learning" />
+      <node id="analysis-based" label="analysis-based" />
+      <node id="analysis-teaching" label="analysis-teaching" />
+      <node id="analysis-students" label="analysis-students" />
+      <node id="analysis-results" label="analysis-results" />
+      <node id="analysis-accuracy" label="analysis-accuracy" />
+      <node id="research-model" label="research-model" />
+      <node id="research-time" label="research-time" />
+      <node id="research-study" label="research-study" />
+      <node id="research-results" label="research-results" />
+      <node id="research-algorithm" label="research-algorithm" />
+      <node id="research-design" label="research-design" />
+      <node id="research-data" label="research-data" />
+      <node id="research-learning" label="research-learning" />
+      <node id="research-based" label="research-based" />
+      <node id="research-teaching" label="research-teaching" />
+      <node id="research-students" label="research-students" />
+      <node id="research-accuracy" label="research-accuracy" />
+      <node id="model-learning" label="model-learning" />
+      <node id="model-study" label="model-study" />
+      <node id="model-based" label="model-based" />
+      <node id="model-teaching" label="model-teaching" />
+      <node id="model-design" label="model-design" />
+      <node id="model-students" label="model-students" />
+      <node id="model-results" label="model-results" />
+      <node id="model-data" label="model-data" />
+      <node id="model-time" label="model-time" />
+      <node id="model-algorithm" label="model-algorithm" />
+      <node id="model-accuracy" label="model-accuracy" />
+      <node id="learning-study" label="learning-study" />
+      <node id="learning-based" label="learning-based" />
+      <node id="learning-teaching" label="learning-teaching" />
+      <node id="learning-design" label="learning-design" />
+      <node id="learning-students" label="learning-students" />
+      <node id="learning-results" label="learning-results" />
+      <node id="learning-data" label="learning-data" />
+      <node id="learning-algorithm" label="learning-algorithm" />
+      <node id="learning-time" label="learning-time" />
+      <node id="learning-accuracy" label="learning-accuracy" />
+      <node id="study-based" label="study-based" />
+      <node id="study-teaching" label="study-teaching" />
+      <node id="study-design" label="study-design" />
+      <node id="study-students" label="study-students" />
+      <node id="study-results" label="study-results" />
+      <node id="study-algorithm" label="study-algorithm" />
+      <node id="study-data" label="study-data" />
+      <node id="study-time" label="study-time" />
+      <node id="study-accuracy" label="study-accuracy" />
+      <node id="based-teaching" label="based-teaching" />
+      <node id="based-design" label="based-design" />
+      <node id="based-students" label="based-students" />
+      <node id="based-results" label="based-results" />
+      <node id="based-data" label="based-data" />
+      <node id="based-accuracy" label="based-accuracy" />
+      <node id="based-algorithm" label="based-algorithm" />
+      <node id="based-time" label="based-time" />
+      <node id="teaching-design" label="teaching-design" />
+      <node id="teaching-students" label="teaching-students" />
+      <node id="teaching-results" label="teaching-results" />
+      <node id="teaching-data" label="teaching-data" />
+      <node id="teaching-accuracy" label="teaching-accuracy" />
+      <node id="teaching-time" label="teaching-time" />
+      <node id="teaching-algorithm" label="teaching-algorithm" />
+      <node id="design-students" label="design-students" />
+      <node id="design-results" label="design-results" />
+      <node id="design-data" label="design-data" />
+      <node id="design-accuracy" label="design-accuracy" />
+      <node id="design-algorithm" label="design-algorithm" />
+      <node id="design-time" label="design-time" />
+      <node id="students-results" label="students-results" />
+      <node id="students-time" label="students-time" />
+      <node id="students-data" label="students-data" />
+      <node id="students-accuracy" label="students-accuracy" />
+      <node id="students-algorithm" label="students-algorithm" />
+      <node id="results-data" label="results-data" />
+      <node id="results-algorithm" label="results-algorithm" />
+      <node id="results-time" label="results-time" />
+      <node id="results-accuracy" label="results-accuracy" />
+      <node id="time-data" label="time-data" />
+      <node id="time-algorithm" label="time-algorithm" />
+      <node id="time-accuracy" label="time-accuracy" />
+      <node id="data-accuracy" label="data-accuracy" />
+      <node id="data-algorithm" label="data-algorithm" />
+      <node id="accuracy-algorithm" label="accuracy-algorithm" />
+    </nodes>
+    <edges>
+      <edge source="method-analysis" target="peso" id="0" weight="296" />
+      <edge source="method-analysis" target="count" id="1" weight="296" />
+      <edge source="peso" target="method-research" id="2" weight="317" />
+      <edge source="peso" target="method-model" id="3" weight="452" />
+      <edge source="peso" target="method-learning" id="4" weight="247" />
+      <edge source="peso" target="method-study" id="5" weight="392" />
+      <edge source="peso" target="method-based" id="6" weight="450" />
+      <edge source="peso" target="method-teaching" id="7" weight="98" />
+      <edge source="peso" target="method-design" id="8" weight="245" />
+      <edge source="peso" target="method-students" id="9" weight="88" />
+      <edge source="peso" target="method-results" id="10" weight="448" />
+      <edge source="peso" target="method-data" id="11" weight="437" />
+      <edge source="peso" target="method-time" id="12" weight="302" />
+      <edge source="peso" target="method-algorithm" id="13" weight="253" />
+      <edge source="peso" target="method-accuracy" id="14" weight="316" />
+      <edge source="peso" target="analysis-research" id="15" weight="233" />
+      <edge source="peso" target="analysis-model" id="16" weight="288" />
+      <edge source="peso" target="analysis-time" id="17" weight="174" />
+      <edge source="peso" target="analysis-study" id="18" weight="299" />
+      <edge source="peso" target="analysis-algorithm" id="19" weight="145" />
+      <edge source="peso" target="analysis-design" id="20" weight="159" />
+      <edge source="peso" target="analysis-data" id="21" weight="304" />
+      <edge source="peso" target="analysis-learning" id="22" weight="166" />
+      <edge source="peso" target="analysis-based" id="23" weight="260" />
+      <edge source="peso" target="analysis-teaching" id="24" weight="65" />
+      <edge source="peso" target="analysis-students" id="25" weight="74" />
+      <edge source="peso" target="analysis-results" id="26" weight="269" />
+      <edge source="peso" target="analysis-accuracy" id="27" weight="167" />
+      <edge source="peso" target="research-model" id="28" weight="332" />
+      <edge source="peso" target="research-time" id="29" weight="197" />
+      <edge source="peso" target="research-study" id="30" weight="325" />
+      <edge source="peso" target="research-results" id="31" weight="298" />
+      <edge source="peso" target="research-algorithm" id="32" weight="163" />
+      <edge source="peso" target="research-design" id="33" weight="199" />
+      <edge source="peso" target="research-data" id="34" weight="317" />
+      <edge source="peso" target="research-learning" id="35" weight="179" />
+      <edge source="peso" target="research-based" id="36" weight="294" />
+      <edge source="peso" target="research-teaching" id="37" weight="84" />
+      <edge source="peso" target="research-students" id="38" weight="95" />
+      <edge source="peso" target="research-accuracy" id="39" weight="185" />
+      <edge source="peso" target="model-learning" id="40" weight="255" />
+      <edge source="peso" target="model-study" id="41" weight="424" />
+      <edge source="peso" target="model-based" id="42" weight="444" />
+      <edge source="peso" target="model-teaching" id="43" weight="87" />
+      <edge source="peso" target="model-design" id="44" weight="238" />
+      <edge source="peso" target="model-students" id="45" weight="94" />
+      <edge source="peso" target="model-results" id="46" weight="447" />
+      <edge source="peso" target="model-data" id="47" weight="456" />
+      <edge source="peso" target="model-time" id="48" weight="301" />
+      <edge source="peso" target="model-algorithm" id="49" weight="248" />
+      <edge source="peso" target="model-accuracy" id="50" weight="333" />
+      <edge source="peso" target="learning-study" id="51" weight="221" />
+      <edge source="peso" target="learning-based" id="52" weight="234" />
+      <edge source="peso" target="learning-teaching" id="53" weight="102" />
+      <edge source="peso" target="learning-design" id="54" weight="140" />
+      <edge source="peso" target="learning-students" id="55" weight="116" />
+      <edge source="peso" target="learning-results" id="56" weight="208" />
+      <edge source="peso" target="learning-data" id="57" weight="254" />
+      <edge source="peso" target="learning-algorithm" id="58" weight="129" />
+      <edge source="peso" target="learning-time" id="59" weight="142" />
+      <edge source="peso" target="learning-accuracy" id="60" weight="164" />
+      <edge source="peso" target="study-based" id="61" weight="365" />
+      <edge source="peso" target="study-teaching" id="62" weight="95" />
+      <edge source="peso" target="study-design" id="63" weight="233" />
+      <edge source="peso" target="study-students" id="64" weight="134" />
+      <edge source="peso" target="study-results" id="65" weight="408" />
+      <edge source="peso" target="study-algorithm" id="66" weight="207" />
+      <edge source="peso" target="study-data" id="67" weight="376" />
+      <edge source="peso" target="study-time" id="68" weight="244" />
+      <edge source="peso" target="study-accuracy" id="69" weight="245" />
+      <edge source="peso" target="based-teaching" id="70" weight="87" />
+      <edge source="peso" target="based-design" id="71" weight="241" />
+      <edge source="peso" target="based-students" id="72" weight="99" />
+      <edge source="peso" target="based-results" id="73" weight="409" />
+      <edge source="peso" target="based-data" id="74" weight="400" />
+      <edge source="peso" target="based-accuracy" id="75" weight="275" />
+      <edge source="peso" target="based-algorithm" id="76" weight="256" />
+      <edge source="peso" target="based-time" id="77" weight="290" />
+      <edge source="peso" target="teaching-design" id="78" weight="66" />
+      <edge source="peso" target="teaching-students" id="79" weight="90" />
+      <edge source="peso" target="teaching-results" id="80" weight="79" />
+      <edge source="peso" target="teaching-data" id="81" weight="89" />
+      <edge source="peso" target="teaching-accuracy" id="82" weight="37" />
+      <edge source="peso" target="teaching-time" id="83" weight="51" />
+      <edge source="peso" target="teaching-algorithm" id="84" weight="38" />
+      <edge source="peso" target="design-students" id="85" weight="76" />
+      <edge source="peso" target="design-results" id="86" weight="214" />
+      <edge source="peso" target="design-data" id="87" weight="221" />
+      <edge source="peso" target="design-accuracy" id="88" weight="118" />
+      <edge source="peso" target="design-algorithm" id="89" weight="119" />
+      <edge source="peso" target="design-time" id="90" weight="147" />
+      <edge source="peso" target="students-results" id="91" weight="99" />
+      <edge source="peso" target="students-time" id="92" weight="48" />
+      <edge source="peso" target="students-data" id="93" weight="96" />
+      <edge source="peso" target="students-accuracy" id="94" weight="36" />
+      <edge source="peso" target="students-algorithm" id="95" weight="37" />
+      <edge source="peso" target="results-data" id="96" weight="376" />
+      <edge source="peso" target="results-algorithm" id="97" weight="233" />
+      <edge source="peso" target="results-time" id="98" weight="270" />
+      <edge source="peso" target="results-accuracy" id="99" weight="292" />
+      <edge source="peso" target="time-data" id="100" weight="302" />
+      <edge source="peso" target="time-algorithm" id="101" weight="189" />
+      <edge source="peso" target="time-accuracy" id="102" weight="232" />
+      <edge source="peso" target="data-accuracy" id="103" weight="296" />
+      <edge source="peso" target="data-algorithm" id="104" weight="232" />
+      <edge source="peso" target="accuracy-algorithm" id="105" weight="193" />
+      <edge source="count" target="method-research" id="106" weight="317" />
+      <edge source="count" target="method-model" id="107" weight="452" />
+      <edge source="count" target="method-learning" id="108" weight="247" />
+      <edge source="count" target="method-study" id="109" weight="392" />
+      <edge source="count" target="method-based" id="110" weight="450" />
+      <edge source="count" target="method-teaching" id="111" weight="98" />
+      <edge source="count" target="method-design" id="112" weight="245" />
+      <edge source="count" target="method-students" id="113" weight="88" />
+      <edge source="count" target="method-results" id="114" weight="448" />
+      <edge source="count" target="method-data" id="115" weight="437" />
+      <edge source="count" target="method-time" id="116" weight="302" />
+      <edge source="count" target="method-algorithm" id="117" weight="253" />
+      <edge source="count" target="method-accuracy" id="118" weight="316" />
+      <edge source="count" target="analysis-research" id="119" weight="233" />
+      <edge source="count" target="analysis-model" id="120" weight="288" />
+      <edge source="count" target="analysis-time" id="121" weight="174" />
+      <edge source="count" target="analysis-study" id="122" weight="299" />
+      <edge source="count" target="analysis-algorithm" id="123" weight="145" />
+      <edge source="count" target="analysis-design" id="124" weight="159" />
+      <edge source="count" target="analysis-data" id="125" weight="304" />
+      <edge source="count" target="analysis-learning" id="126" weight="166" />
+      <edge source="count" target="analysis-based" id="127" weight="260" />
+      <edge source="count" target="analysis-teaching" id="128" weight="65" />
+      <edge source="count" target="analysis-students" id="129" weight="74" />
+      <edge source="count" target="analysis-results" id="130" weight="269" />
+      <edge source="count" target="analysis-accuracy" id="131" weight="167" />
+      <edge source="count" target="research-model" id="132" weight="332" />
+      <edge source="count" target="research-time" id="133" weight="197" />
+      <edge source="count" target="research-study" id="134" weight="325" />
+      <edge source="count" target="research-results" id="135" weight="298" />
+      <edge source="count" target="research-algorithm" id="136" weight="163" />
+      <edge source="count" target="research-design" id="137" weight="199" />
+      <edge source="count" target="research-data" id="138" weight="317" />
+      <edge source="count" target="research-learning" id="139" weight="179" />
+      <edge source="count" target="research-based" id="140" weight="294" />
+      <edge source="count" target="research-teaching" id="141" weight="84" />
+      <edge source="count" target="research-students" id="142" weight="95" />
+      <edge source="count" target="research-accuracy" id="143" weight="185" />
+      <edge source="count" target="model-learning" id="144" weight="255" />
+      <edge source="count" target="model-study" id="145" weight="424" />
+      <edge source="count" target="model-based" id="146" weight="444" />
+      <edge source="count" target="model-teaching" id="147" weight="87" />
+      <edge source="count" target="model-design" id="148" weight="238" />
+      <edge source="count" target="model-students" id="149" weight="94" />
+      <edge source="count" target="model-results" id="150" weight="447" />
+      <edge source="count" target="model-data" id="151" weight="456" />
+      <edge source="count" target="model-time" id="152" weight="301" />
+      <edge source="count" target="model-algorithm" id="153" weight="248" />
+      <edge source="count" target="model-accuracy" id="154" weight="333" />
+      <edge source="count" target="learning-study" id="155" weight="221" />
+      <edge source="count" target="learning-based" id="156" weight="234" />
+      <edge source="count" target="learning-teaching" id="157" weight="102" />
+      <edge source="count" target="learning-design" id="158" weight="140" />
+      <edge source="count" target="learning-students" id="159" weight="116" />
+      <edge source="count" target="learning-results" id="160" weight="208" />
+      <edge source="count" target="learning-data" id="161" weight="254" />
+      <edge source="count" target="learning-algorithm" id="162" weight="129" />
+      <edge source="count" target="learning-time" id="163" weight="142" />
+      <edge source="count" target="learning-accuracy" id="164" weight="164" />
+      <edge source="count" target="study-based" id="165" weight="365" />
+      <edge source="count" target="study-teaching" id="166" weight="95" />
+      <edge source="count" target="study-design" id="167" weight="233" />
+      <edge source="count" target="study-students" id="168" weight="134" />
+      <edge source="count" target="study-results" id="169" weight="408" />
+      <edge source="count" target="study-algorithm" id="170" weight="207" />
+      <edge source="count" target="study-data" id="171" weight="376" />
+      <edge source="count" target="study-time" id="172" weight="244" />
+      <edge source="count" target="study-accuracy" id="173" weight="245" />
+      <edge source="count" target="based-teaching" id="174" weight="87" />
+      <edge source="count" target="based-design" id="175" weight="241" />
+      <edge source="count" target="based-students" id="176" weight="99" />
+      <edge source="count" target="based-results" id="177" weight="409" />
+      <edge source="count" target="based-data" id="178" weight="400" />
+      <edge source="count" target="based-accuracy" id="179" weight="275" />
+      <edge source="count" target="based-algorithm" id="180" weight="256" />
+      <edge source="count" target="based-time" id="181" weight="290" />
+      <edge source="count" target="teaching-design" id="182" weight="66" />
+      <edge source="count" target="teaching-students" id="183" weight="90" />
+      <edge source="count" target="teaching-results" id="184" weight="79" />
+      <edge source="count" target="teaching-data" id="185" weight="89" />
+      <edge source="count" target="teaching-accuracy" id="186" weight="37" />
+      <edge source="count" target="teaching-time" id="187" weight="51" />
+      <edge source="count" target="teaching-algorithm" id="188" weight="38" />
+      <edge source="count" target="design-students" id="189" weight="76" />
+      <edge source="count" target="design-results" id="190" weight="214" />
+      <edge source="count" target="design-data" id="191" weight="221" />
+      <edge source="count" target="design-accuracy" id="192" weight="118" />
+      <edge source="count" target="design-algorithm" id="193" weight="119" />
+      <edge source="count" target="design-time" id="194" weight="147" />
+      <edge source="count" target="students-results" id="195" weight="99" />
+      <edge source="count" target="students-time" id="196" weight="48" />
+      <edge source="count" target="students-data" id="197" weight="96" />
+      <edge source="count" target="students-accuracy" id="198" weight="36" />
+      <edge source="count" target="students-algorithm" id="199" weight="37" />
+      <edge source="count" target="results-data" id="200" weight="376" />
+      <edge source="count" target="results-algorithm" id="201" weight="233" />
+      <edge source="count" target="results-time" id="202" weight="270" />
+      <edge source="count" target="results-accuracy" id="203" weight="292" />
+      <edge source="count" target="time-data" id="204" weight="302" />
+      <edge source="count" target="time-algorithm" id="205" weight="189" />
+      <edge source="count" target="time-accuracy" id="206" weight="232" />
+      <edge source="count" target="data-accuracy" id="207" weight="296" />
+      <edge source="count" target="data-algorithm" id="208" weight="232" />
+      <edge source="count" target="accuracy-algorithm" id="209" weight="193" />
+    </edges>
+  </graph>
+</gexf>

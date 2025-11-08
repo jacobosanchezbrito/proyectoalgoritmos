@@ -1,0 +1,555 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2025-11-03">
+    <creator>NetworkX 3.5</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="edge">
+      <attribute id="0" title="count" type="long" />
+    </attributes>
+    <nodes>
+      <node id="method" label="method" />
+      <node id="analysis" label="analysis" />
+      <node id="research" label="research" />
+      <node id="model" label="model" />
+      <node id="learning" label="learning" />
+      <node id="study" label="study" />
+      <node id="based" label="based" />
+      <node id="teaching" label="teaching" />
+      <node id="design" label="design" />
+      <node id="students" label="students" />
+      <node id="results" label="results" />
+      <node id="time" label="time" />
+      <node id="data" label="data" />
+      <node id="accuracy" label="accuracy" />
+      <node id="algorithm" label="algorithm" />
+    </nodes>
+    <edges>
+      <edge source="method" target="analysis" id="0" weight="296">
+        <attvalues>
+          <attvalue for="0" value="296" />
+        </attvalues>
+      </edge>
+      <edge source="method" target="research" id="1" weight="317">
+        <attvalues>
+          <attvalue for="0" value="317" />
+        </attvalues>
+      </edge>
+      <edge source="method" target="model" id="2" weight="452">
+        <attvalues>
+          <attvalue for="0" value="452" />
+        </attvalues>
+      </edge>
+      <edge source="method" target="learning" id="3" weight="247">
+        <attvalues>
+          <attvalue for="0" value="247" />
+        </attvalues>
+      </edge>
+      <edge source="method" target="study" id="4" weight="392">
+        <attvalues>
+          <attvalue for="0" value="392" />
+        </attvalues>
+      </edge>
+      <edge source="method" target="based" id="5" weight="450">
+        <attvalues>
+          <attvalue for="0" value="450" />
+        </attvalues>
+      </edge>
+      <edge source="method" target="teaching" id="6" weight="98">
+        <attvalues>
+          <attvalue for="0" value="98" />
+        </attvalues>
+      </edge>
+      <edge source="method" target="design" id="7" weight="245">
+        <attvalues>
+          <attvalue for="0" value="245" />
+        </attvalues>
+      </edge>
+      <edge source="method" target="students" id="8" weight="88">
+        <attvalues>
+          <attvalue for="0" value="88" />
+        </attvalues>
+      </edge>
+      <edge source="method" target="results" id="9" weight="448">
+        <attvalues>
+          <attvalue for="0" value="448" />
+        </attvalues>
+      </edge>
+      <edge source="method" target="data" id="10" weight="437">
+        <attvalues>
+          <attvalue for="0" value="437" />
+        </attvalues>
+      </edge>
+      <edge source="method" target="time" id="11" weight="302">
+        <attvalues>
+          <attvalue for="0" value="302" />
+        </attvalues>
+      </edge>
+      <edge source="method" target="algorithm" id="12" weight="253">
+        <attvalues>
+          <attvalue for="0" value="253" />
+        </attvalues>
+      </edge>
+      <edge source="method" target="accuracy" id="13" weight="316">
+        <attvalues>
+          <attvalue for="0" value="316" />
+        </attvalues>
+      </edge>
+      <edge source="analysis" target="research" id="14" weight="233">
+        <attvalues>
+          <attvalue for="0" value="233" />
+        </attvalues>
+      </edge>
+      <edge source="analysis" target="model" id="15" weight="288">
+        <attvalues>
+          <attvalue for="0" value="288" />
+        </attvalues>
+      </edge>
+      <edge source="analysis" target="time" id="16" weight="174">
+        <attvalues>
+          <attvalue for="0" value="174" />
+        </attvalues>
+      </edge>
+      <edge source="analysis" target="study" id="17" weight="299">
+        <attvalues>
+          <attvalue for="0" value="299" />
+        </attvalues>
+      </edge>
+      <edge source="analysis" target="algorithm" id="18" weight="145">
+        <attvalues>
+          <attvalue for="0" value="145" />
+        </attvalues>
+      </edge>
+      <edge source="analysis" target="design" id="19" weight="159">
+        <attvalues>
+          <attvalue for="0" value="159" />
+        </attvalues>
+      </edge>
+      <edge source="analysis" target="data" id="20" weight="304">
+        <attvalues>
+          <attvalue for="0" value="304" />
+        </attvalues>
+      </edge>
+      <edge source="analysis" target="learning" id="21" weight="166">
+        <attvalues>
+          <attvalue for="0" value="166" />
+        </attvalues>
+      </edge>
+      <edge source="analysis" target="based" id="22" weight="260">
+        <attvalues>
+          <attvalue for="0" value="260" />
+        </attvalues>
+      </edge>
+      <edge source="analysis" target="teaching" id="23" weight="65">
+        <attvalues>
+          <attvalue for="0" value="65" />
+        </attvalues>
+      </edge>
+      <edge source="analysis" target="students" id="24" weight="74">
+        <attvalues>
+          <attvalue for="0" value="74" />
+        </attvalues>
+      </edge>
+      <edge source="analysis" target="results" id="25" weight="269">
+        <attvalues>
+          <attvalue for="0" value="269" />
+        </attvalues>
+      </edge>
+      <edge source="analysis" target="accuracy" id="26" weight="167">
+        <attvalues>
+          <attvalue for="0" value="167" />
+        </attvalues>
+      </edge>
+      <edge source="research" target="model" id="27" weight="332">
+        <attvalues>
+          <attvalue for="0" value="332" />
+        </attvalues>
+      </edge>
+      <edge source="research" target="time" id="28" weight="197">
+        <attvalues>
+          <attvalue for="0" value="197" />
+        </attvalues>
+      </edge>
+      <edge source="research" target="study" id="29" weight="325">
+        <attvalues>
+          <attvalue for="0" value="325" />
+        </attvalues>
+      </edge>
+      <edge source="research" target="results" id="30" weight="298">
+        <attvalues>
+          <attvalue for="0" value="298" />
+        </attvalues>
+      </edge>
+      <edge source="research" target="algorithm" id="31" weight="163">
+        <attvalues>
+          <attvalue for="0" value="163" />
+        </attvalues>
+      </edge>
+      <edge source="research" target="design" id="32" weight="199">
+        <attvalues>
+          <attvalue for="0" value="199" />
+        </attvalues>
+      </edge>
+      <edge source="research" target="data" id="33" weight="317">
+        <attvalues>
+          <attvalue for="0" value="317" />
+        </attvalues>
+      </edge>
+      <edge source="research" target="learning" id="34" weight="179">
+        <attvalues>
+          <attvalue for="0" value="179" />
+        </attvalues>
+      </edge>
+      <edge source="research" target="based" id="35" weight="294">
+        <attvalues>
+          <attvalue for="0" value="294" />
+        </attvalues>
+      </edge>
+      <edge source="research" target="teaching" id="36" weight="84">
+        <attvalues>
+          <attvalue for="0" value="84" />
+        </attvalues>
+      </edge>
+      <edge source="research" target="students" id="37" weight="95">
+        <attvalues>
+          <attvalue for="0" value="95" />
+        </attvalues>
+      </edge>
+      <edge source="research" target="accuracy" id="38" weight="185">
+        <attvalues>
+          <attvalue for="0" value="185" />
+        </attvalues>
+      </edge>
+      <edge source="model" target="learning" id="39" weight="255">
+        <attvalues>
+          <attvalue for="0" value="255" />
+        </attvalues>
+      </edge>
+      <edge source="model" target="study" id="40" weight="424">
+        <attvalues>
+          <attvalue for="0" value="424" />
+        </attvalues>
+      </edge>
+      <edge source="model" target="based" id="41" weight="444">
+        <attvalues>
+          <attvalue for="0" value="444" />
+        </attvalues>
+      </edge>
+      <edge source="model" target="teaching" id="42" weight="87">
+        <attvalues>
+          <attvalue for="0" value="87" />
+        </attvalues>
+      </edge>
+      <edge source="model" target="design" id="43" weight="238">
+        <attvalues>
+          <attvalue for="0" value="238" />
+        </attvalues>
+      </edge>
+      <edge source="model" target="students" id="44" weight="94">
+        <attvalues>
+          <attvalue for="0" value="94" />
+        </attvalues>
+      </edge>
+      <edge source="model" target="results" id="45" weight="447">
+        <attvalues>
+          <attvalue for="0" value="447" />
+        </attvalues>
+      </edge>
+      <edge source="model" target="data" id="46" weight="456">
+        <attvalues>
+          <attvalue for="0" value="456" />
+        </attvalues>
+      </edge>
+      <edge source="model" target="time" id="47" weight="301">
+        <attvalues>
+          <attvalue for="0" value="301" />
+        </attvalues>
+      </edge>
+      <edge source="model" target="algorithm" id="48" weight="248">
+        <attvalues>
+          <attvalue for="0" value="248" />
+        </attvalues>
+      </edge>
+      <edge source="model" target="accuracy" id="49" weight="333">
+        <attvalues>
+          <attvalue for="0" value="333" />
+        </attvalues>
+      </edge>
+      <edge source="learning" target="study" id="50" weight="221">
+        <attvalues>
+          <attvalue for="0" value="221" />
+        </attvalues>
+      </edge>
+      <edge source="learning" target="based" id="51" weight="234">
+        <attvalues>
+          <attvalue for="0" value="234" />
+        </attvalues>
+      </edge>
+      <edge source="learning" target="teaching" id="52" weight="102">
+        <attvalues>
+          <attvalue for="0" value="102" />
+        </attvalues>
+      </edge>
+      <edge source="learning" target="design" id="53" weight="140">
+        <attvalues>
+          <attvalue for="0" value="140" />
+        </attvalues>
+      </edge>
+      <edge source="learning" target="students" id="54" weight="116">
+        <attvalues>
+          <attvalue for="0" value="116" />
+        </attvalues>
+      </edge>
+      <edge source="learning" target="results" id="55" weight="208">
+        <attvalues>
+          <attvalue for="0" value="208" />
+        </attvalues>
+      </edge>
+      <edge source="learning" target="data" id="56" weight="254">
+        <attvalues>
+          <attvalue for="0" value="254" />
+        </attvalues>
+      </edge>
+      <edge source="learning" target="algorithm" id="57" weight="129">
+        <attvalues>
+          <attvalue for="0" value="129" />
+        </attvalues>
+      </edge>
+      <edge source="learning" target="time" id="58" weight="142">
+        <attvalues>
+          <attvalue for="0" value="142" />
+        </attvalues>
+      </edge>
+      <edge source="learning" target="accuracy" id="59" weight="164">
+        <attvalues>
+          <attvalue for="0" value="164" />
+        </attvalues>
+      </edge>
+      <edge source="study" target="based" id="60" weight="365">
+        <attvalues>
+          <attvalue for="0" value="365" />
+        </attvalues>
+      </edge>
+      <edge source="study" target="teaching" id="61" weight="95">
+        <attvalues>
+          <attvalue for="0" value="95" />
+        </attvalues>
+      </edge>
+      <edge source="study" target="design" id="62" weight="233">
+        <attvalues>
+          <attvalue for="0" value="233" />
+        </attvalues>
+      </edge>
+      <edge source="study" target="students" id="63" weight="134">
+        <attvalues>
+          <attvalue for="0" value="134" />
+        </attvalues>
+      </edge>
+      <edge source="study" target="results" id="64" weight="408">
+        <attvalues>
+          <attvalue for="0" value="408" />
+        </attvalues>
+      </edge>
+      <edge source="study" target="algorithm" id="65" weight="207">
+        <attvalues>
+          <attvalue for="0" value="207" />
+        </attvalues>
+      </edge>
+      <edge source="study" target="data" id="66" weight="376">
+        <attvalues>
+          <attvalue for="0" value="376" />
+        </attvalues>
+      </edge>
+      <edge source="study" target="time" id="67" weight="244">
+        <attvalues>
+          <attvalue for="0" value="244" />
+        </attvalues>
+      </edge>
+      <edge source="study" target="accuracy" id="68" weight="245">
+        <attvalues>
+          <attvalue for="0" value="245" />
+        </attvalues>
+      </edge>
+      <edge source="based" target="teaching" id="69" weight="87">
+        <attvalues>
+          <attvalue for="0" value="87" />
+        </attvalues>
+      </edge>
+      <edge source="based" target="design" id="70" weight="241">
+        <attvalues>
+          <attvalue for="0" value="241" />
+        </attvalues>
+      </edge>
+      <edge source="based" target="students" id="71" weight="99">
+        <attvalues>
+          <attvalue for="0" value="99" />
+        </attvalues>
+      </edge>
+      <edge source="based" target="results" id="72" weight="409">
+        <attvalues>
+          <attvalue for="0" value="409" />
+        </attvalues>
+      </edge>
+      <edge source="based" target="data" id="73" weight="400">
+        <attvalues>
+          <attvalue for="0" value="400" />
+        </attvalues>
+      </edge>
+      <edge source="based" target="accuracy" id="74" weight="275">
+        <attvalues>
+          <attvalue for="0" value="275" />
+        </attvalues>
+      </edge>
+      <edge source="based" target="algorithm" id="75" weight="256">
+        <attvalues>
+          <attvalue for="0" value="256" />
+        </attvalues>
+      </edge>
+      <edge source="based" target="time" id="76" weight="290">
+        <attvalues>
+          <attvalue for="0" value="290" />
+        </attvalues>
+      </edge>
+      <edge source="teaching" target="design" id="77" weight="66">
+        <attvalues>
+          <attvalue for="0" value="66" />
+        </attvalues>
+      </edge>
+      <edge source="teaching" target="students" id="78" weight="90">
+        <attvalues>
+          <attvalue for="0" value="90" />
+        </attvalues>
+      </edge>
+      <edge source="teaching" target="results" id="79" weight="79">
+        <attvalues>
+          <attvalue for="0" value="79" />
+        </attvalues>
+      </edge>
+      <edge source="teaching" target="data" id="80" weight="89">
+        <attvalues>
+          <attvalue for="0" value="89" />
+        </attvalues>
+      </edge>
+      <edge source="teaching" target="accuracy" id="81" weight="37">
+        <attvalues>
+          <attvalue for="0" value="37" />
+        </attvalues>
+      </edge>
+      <edge source="teaching" target="time" id="82" weight="51">
+        <attvalues>
+          <attvalue for="0" value="51" />
+        </attvalues>
+      </edge>
+      <edge source="teaching" target="algorithm" id="83" weight="38">
+        <attvalues>
+          <attvalue for="0" value="38" />
+        </attvalues>
+      </edge>
+      <edge source="design" target="students" id="84" weight="76">
+        <attvalues>
+          <attvalue for="0" value="76" />
+        </attvalues>
+      </edge>
+      <edge source="design" target="results" id="85" weight="214">
+        <attvalues>
+          <attvalue for="0" value="214" />
+        </attvalues>
+      </edge>
+      <edge source="design" target="data" id="86" weight="221">
+        <attvalues>
+          <attvalue for="0" value="221" />
+        </attvalues>
+      </edge>
+      <edge source="design" target="accuracy" id="87" weight="118">
+        <attvalues>
+          <attvalue for="0" value="118" />
+        </attvalues>
+      </edge>
+      <edge source="design" target="algorithm" id="88" weight="119">
+        <attvalues>
+          <attvalue for="0" value="119" />
+        </attvalues>
+      </edge>
+      <edge source="design" target="time" id="89" weight="147">
+        <attvalues>
+          <attvalue for="0" value="147" />
+        </attvalues>
+      </edge>
+      <edge source="students" target="results" id="90" weight="99">
+        <attvalues>
+          <attvalue for="0" value="99" />
+        </attvalues>
+      </edge>
+      <edge source="students" target="time" id="91" weight="48">
+        <attvalues>
+          <attvalue for="0" value="48" />
+        </attvalues>
+      </edge>
+      <edge source="students" target="data" id="92" weight="96">
+        <attvalues>
+          <attvalue for="0" value="96" />
+        </attvalues>
+      </edge>
+      <edge source="students" target="accuracy" id="93" weight="36">
+        <attvalues>
+          <attvalue for="0" value="36" />
+        </attvalues>
+      </edge>
+      <edge source="students" target="algorithm" id="94" weight="37">
+        <attvalues>
+          <attvalue for="0" value="37" />
+        </attvalues>
+      </edge>
+      <edge source="results" target="data" id="95" weight="376">
+        <attvalues>
+          <attvalue for="0" value="376" />
+        </attvalues>
+      </edge>
+      <edge source="results" target="algorithm" id="96" weight="233">
+        <attvalues>
+          <attvalue for="0" value="233" />
+        </attvalues>
+      </edge>
+      <edge source="results" target="time" id="97" weight="270">
+        <attvalues>
+          <attvalue for="0" value="270" />
+        </attvalues>
+      </edge>
+      <edge source="results" target="accuracy" id="98" weight="292">
+        <attvalues>
+          <attvalue for="0" value="292" />
+        </attvalues>
+      </edge>
+      <edge source="time" target="data" id="99" weight="302">
+        <attvalues>
+          <attvalue for="0" value="302" />
+        </attvalues>
+      </edge>
+      <edge source="time" target="algorithm" id="100" weight="189">
+        <attvalues>
+          <attvalue for="0" value="189" />
+        </attvalues>
+      </edge>
+      <edge source="time" target="accuracy" id="101" weight="232">
+        <attvalues>
+          <attvalue for="0" value="232" />
+        </attvalues>
+      </edge>
+      <edge source="data" target="accuracy" id="102" weight="296">
+        <attvalues>
+          <attvalue for="0" value="296" />
+        </attvalues>
+      </edge>
+      <edge source="data" target="algorithm" id="103" weight="232">
+        <attvalues>
+          <attvalue for="0" value="232" />
+        </attvalues>
+      </edge>
+      <edge source="accuracy" target="algorithm" id="104" weight="193">
+        <attvalues>
+          <attvalue for="0" value="193" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>
