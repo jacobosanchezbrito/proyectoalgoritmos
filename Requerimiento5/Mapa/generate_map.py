@@ -1,85 +1,110 @@
 # generate_map.py
 import os
 import re
-from pathlib import Path
-from urllib.request import urlretrieve
+import pycountry
 import geopandas as gpd
 import matplotlib.pyplot as plt
-import bibtexparser
+from pathlib import Path
+from urllib.request import urlretrieve
 from collections import Counter
 
-# === CONFIGURACIÓN DE RUTAS ===
-BASE_DIR = Path(__file__).resolve().parents[2]  # Subir dos niveles desde Requerimiento5/Mapa
+BASE_DIR = Path(__file__).resolve().parents[2]
 BIB_PATH = BASE_DIR / "Requerimiento1" / "ArchivosFiltrados" / "articulosOptimos_limpio.bib"
-OUTPUT_DIR = Path(__file__).resolve().parent  # Carpeta actual (Mapa)
-MAP_PATH = OUTPUT_DIR / "mapa_articulos_por_pais.jpg"
+OUTPUT_DIR = BASE_DIR / "Requerimiento5" / "Mapa"
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# === VERIFICAR EXISTENCIA DEL ARCHIVO ===
-if not BIB_PATH.exists():
-    print(f"❌ Archivo no encontrado: {BIB_PATH}")
-    exit()
-
-# === DESCARGAR MAPA BASE SI NO EXISTE ===
+# ---- Descarga del mapa base ----
 geojson_path = OUTPUT_DIR / "ne_110m_admin_0_countries.geojson"
 if not geojson_path.exists():
-    print("🌍 Descargando mapa base desde Natural Earth (GitHub)...")
-    url = "https://github.com/nvkelso/natural-earth-vector/raw/master/geojson/ne_110m_admin_0_countries.geojson"
+    print("Descargando mapa base desde Natural Earth (GitHub)...")
+    url = "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson"
     urlretrieve(url, geojson_path)
 
-# === CARGAR MAPA BASE ===
+# ---- Cargar mapa ----
 world = gpd.read_file(geojson_path)
 
-# === LEER ARCHIVO BIBTEX ===
-with open(BIB_PATH, encoding="utf-8") as bib_file:
-    bib_database = bibtexparser.load(bib_file)
-
-entries = bib_database.entries
-
-# === LISTA DE PAÍSES (ISO + nombre común) ===
-countries = {
-    "Argentina": "ARG", "Australia": "AUS", "Austria": "AUT", "Belgium": "BEL", "Brazil": "BRA",
-    "Canada": "CAN", "Chile": "CHL", "China": "CHN", "Colombia": "COL", "Czech Republic": "CZE",
-    "Denmark": "DNK", "Egypt": "EGY", "Finland": "FIN", "France": "FRA", "Germany": "DEU",
-    "Greece": "GRC", "Hungary": "HUN", "India": "IND", "Indonesia": "IDN", "Iran": "IRN",
-    "Ireland": "IRL", "Israel": "ISR", "Italy": "ITA", "Japan": "JPN", "Kenya": "KEN",
-    "Mexico": "MEX", "Netherlands": "NLD", "New Zealand": "NZL", "Nigeria": "NGA", "Norway": "NOR",
-    "Pakistan": "PAK", "Peru": "PER", "Philippines": "PHL", "Poland": "POL", "Portugal": "PRT",
-    "Russia": "RUS", "Saudi Arabia": "SAU", "Singapore": "SGP", "South Africa": "ZAF", "South Korea": "KOR",
-    "Spain": "ESP", "Sweden": "SWE", "Switzerland": "CHE", "Thailand": "THA", "Turkey": "TUR",
-    "Ukraine": "UKR", "United Arab Emirates": "ARE", "United Kingdom": "GBR", "United States": "USA",
-    "Venezuela": "VEN", "Vietnam": "VNM"
+# ---- Inferencia heurística de país por apellido ----
+surname_country_map = {
+    # Ejemplos representativos
+    "Wang": "China", "Li": "China", "Zhang": "China",
+    "Kim": "South Korea", "Park": "South Korea", "Lee": "South Korea",
+    "Singh": "India", "Kumar": "India", "Patel": "India",
+    "Garcia": "Spain", "Martinez": "Spain", "Lopez": "Spain", "Gonzalez": "Spain",
+    "Silva": "Brazil", "Santos": "Brazil", "Oliveira": "Brazil",
+    "Smith": "United Kingdom", "Jones": "United Kingdom",
+    "Brown": "United States", "Johnson": "United States",
+    "Nguyen": "Vietnam", "Tran": "Vietnam",
+    "Mohamed": "Egypt", "Hassan": "Egypt",
+    "Kowalski": "Poland", "Nowak": "Poland",
+    "Ivanov": "Russia", "Petrov": "Russia",
+    "Yamamoto": "Japan", "Tanaka": "Japan",
+    "Schmidt": "Germany", "Müller": "Germany", "Mueller": "Germany",
+    "Rossi": "Italy", "Bianchi": "Italy", "Esposito": "Italy",
+    "Dupont": "France", "Lefevre": "France",
+    "Andersson": "Sweden", "Johansson": "Sweden",
+    "Nielsen": "Denmark", "Hansen": "Denmark",
+    "Olsen": "Norway", "Larsen": "Norway"
 }
 
-# === DETECCIÓN HEURÍSTICA DE PAÍSES ===
+def infer_country_from_author(author_name: str) -> str:
+    """Inferir país probable según el apellido del primer autor."""
+    if not author_name:
+        return None
+    surname = author_name.split(",")[0].strip()
+    for key, country in surname_country_map.items():
+        if surname.lower() == key.lower():
+            return country
+    return None
+
+# ---- Cargar archivo .bib ----
+if not BIB_PATH.exists():
+    print(f"❌ Archivo no encontrado: {BIB_PATH}")
+    exit(1)
+
+with open(BIB_PATH, "r", encoding="utf-8") as f:
+    bib_content = f.read()
+
+entries = re.split(r"@article", bib_content)[1:]  # dividir en artículos
+
 country_counts = Counter()
+no_country = 0
+
 for entry in entries:
-    text = ""
-    for key in ["author", "affiliation", "institution", "organization"]:
-        if key in entry:
-            text += " " + entry[key]
-    for name, code in countries.items():
-        if re.search(rf"\b{name}\b", text, flags=re.IGNORECASE):
-            country_counts[code] += 1
+    # Buscar autor principal
+    match = re.search(r"author\s*=\s*[{\"]([^}\"]+)[}\"]", entry)
+    author = match.group(1).split(" and ")[0] if match else None
+    country = infer_country_from_author(author)
+    if country:
+        country_counts[country] += 1
+    else:
+        no_country += 1
 
-# === IMPRIMIR RESULTADOS ===
-if country_counts:
-    print("\n🌎 Conteo de artículos por país:")
-    for code, count in sorted(country_counts.items(), key=lambda x: x[1], reverse=True):
-        country_name = next((n for n, c in countries.items() if c == code), code)
-        print(f"  {country_name} ({code}): {count}")
-else:
-    print("⚠️ No se detectaron países en las afiliaciones o autores del archivo BibTeX.")
+# ---- Mostrar conteos ----
+print("\n🌍 Países detectados:")
+for c, n in country_counts.most_common():
+    print(f"  {c}: {n}")
+print(f"Entradas sin país detectado: {no_country}")
 
-# === UNIR CON MAPA BASE ===
-world["article_count"] = world["ADM0_A3"].map(country_counts)
-world["article_count"] = world["article_count"].fillna(0)
+# ---- Convertir nombres a códigos ISO alpha3 ----
+country_alpha3_counts = {}
+for name, count in country_counts.items():
+    try:
+        country_alpha3_counts[pycountry.countries.lookup(name).alpha_3] = count
+    except:
+        print(f"⚠️ No se pudo convertir {name} a código alpha3")
 
-# === DIBUJAR Y GUARDAR MAPA ===
-fig, ax = plt.subplots(figsize=(12, 7))
-world.plot(column="article_count", cmap="OrRd", linewidth=0.5, edgecolor="gray", legend=True, ax=ax)
-ax.set_title("Distribución de artículos científicos por país", fontsize=14, fontweight="bold")
+# ---- Generar mapa ----
+world["count"] = world["ADM0_A3"].map(country_alpha3_counts).fillna(0)
+
+fig, ax = plt.subplots(figsize=(14, 8))
+world.plot(column="count", cmap="OrRd", linewidth=0.8, ax=ax, edgecolor="0.8", legend=True)
+ax.set_title("Distribución aproximada de autores por país (heurística por apellido)", fontsize=14)
 ax.axis("off")
-plt.tight_layout()
-plt.savefig(MAP_PATH, dpi=300)
-print(f"\n🗺️ Mapa generado y guardado en: {MAP_PATH}")
-plt.show()
+
+# Guardar
+jpg_path = OUTPUT_DIR / "mapa_autores_heuristico.jpg"
+pdf_path = OUTPUT_DIR / "mapa_autores_heuristico.pdf"
+plt.savefig(jpg_path, dpi=300, bbox_inches="tight")
+plt.savefig(pdf_path, dpi=300, bbox_inches="tight")
+
+print(f"\n✅ Mapa generado y guardado como:\n - {jpg_path}\n - {pdf_path}")
