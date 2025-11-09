@@ -129,120 +129,241 @@ def sbert_similarity(a: str, b: str, model) -> float:
 # Interfaz de usuario
 st.subheader("📋 Seleccionar Artículos para Comparar")
 
-# Selector de artículos
-col1, col2 = st.columns(2)
-
-with col1:
-    articulo1_idx = st.selectbox(
-        "Seleccionar primer artículo",
-        range(len(df)),
-        format_func=lambda x: f"{df.iloc[x]['titulo'][:60]}..." if len(df.iloc[x]['titulo']) > 60 else df.iloc[x]['titulo']
-    )
-
-with col2:
-    # Filtrar para no permitir seleccionar el mismo artículo
-    opciones_art2 = [i for i in range(len(df)) if i != articulo1_idx]
-    articulo2_idx = st.selectbox(
-        "Seleccionar segundo artículo",
-        opciones_art2,
-        format_func=lambda x: f"{df.iloc[x]['titulo'][:60]}..." if len(df.iloc[x]['titulo']) > 60 else df.iloc[x]['titulo']
-    )
+# Inicializar session state para artículos seleccionados
+if 'articulos_seleccionados' not in st.session_state:
+    st.session_state['articulos_seleccionados'] = [0, 1]  # Dos artículos por defecto
 
 # Mostrar artículos seleccionados
-st.markdown("---")
-col1, col2 = st.columns(2)
+st.write("**Artículos seleccionados:**")
 
-with col1:
-    st.subheader("Artículo 1")
-    art1 = df.iloc[articulo1_idx]
-    st.write(f"**Título:** {art1['titulo']}")
-    st.write(f"**Año:** {art1['year']}")
-    st.write(f"**Abstract:** {art1['abstract'][:300]}...")
+# Crear selectores dinámicos para cada artículo
+for idx in range(len(st.session_state['articulos_seleccionados'])):
+    col1, col2 = st.columns([5, 1])
+    
+    with col1:
+        # Permitir seleccionar cualquier artículo
+        art_idx_actual = st.session_state['articulos_seleccionados'][idx]
+        
+        nuevo_idx = st.selectbox(
+            f"Artículo {idx + 1}",
+            range(len(df)),
+            index=art_idx_actual,
+            key=f"articulo_select_{idx}",
+            format_func=lambda x: f"{df.iloc[x]['titulo'][:60]}..." if len(df.iloc[x]['titulo']) > 60 else df.iloc[x]['titulo']
+        )
+        
+        # Actualizar el índice
+        st.session_state['articulos_seleccionados'][idx] = nuevo_idx
+        
+        # Mostrar advertencia si hay duplicados
+        seleccionados = st.session_state['articulos_seleccionados']
+        if seleccionados.count(nuevo_idx) > 1:
+            st.warning(f"⚠️ Este artículo ya está seleccionado en otra posición")
+    
+    with col2:
+        # Botón para eliminar (solo si hay más de 2 artículos)
+        if len(st.session_state['articulos_seleccionados']) > 2:
+            if st.button("🗑️", key=f"eliminar_{idx}", help="Eliminar este artículo"):
+                st.session_state['articulos_seleccionados'].pop(idx)
+                st.rerun()
+        else:
+            st.write("")  # Espacio vacío para mantener alineación
 
+# Botón para agregar artículo
+col1, col2, col3 = st.columns([1, 1, 1])
 with col2:
-    st.subheader("Artículo 2")
-    art2 = df.iloc[articulo2_idx]
-    st.write(f"**Título:** {art2['titulo']}")
-    st.write(f"**Año:** {art2['year']}")
-    st.write(f"**Abstract:** {art2['abstract'][:300]}...")
+    if st.button("➕ Agregar Artículo", type="primary"):
+        # Agregar el primer artículo disponible (o el primero si todos están seleccionados)
+        seleccionados = st.session_state['articulos_seleccionados']
+        disponibles = [i for i in range(len(df)) if i not in seleccionados]
+        if disponibles:
+            st.session_state['articulos_seleccionados'].append(disponibles[0])
+        else:
+            # Si todos están seleccionados, agregar el primero de todos modos
+            st.session_state['articulos_seleccionados'].append(0)
+            st.info("ℹ️ Se agregó el artículo 1 (ya estaba seleccionado, pero puedes cambiarlo)")
+        st.rerun()
+
+# Obtener índices finales
+indices_seleccionados = st.session_state['articulos_seleccionados']
+
+# Mostrar información de artículos seleccionados
+st.markdown("---")
+st.subheader("📄 Información de Artículos Seleccionados")
+
+# Mostrar información de cada artículo
+for idx, art_idx in enumerate(indices_seleccionados):
+    with st.expander(f"Artículo {idx + 1}: {df.iloc[art_idx]['titulo'][:80]}..."):
+        art = df.iloc[art_idx]
+        st.write(f"**Título:** {art['titulo']}")
+        st.write(f"**Año:** {art['year']}")
+        st.write(f"**Autor:** {art['autor'][:100]}..." if len(art['autor']) > 100 else f"**Autor:** {art['autor']}")
+        st.write(f"**Abstract:** {art['abstract'][:500]}...")
 
 # Calcular similitudes
 st.markdown("---")
 st.subheader("📊 Resultados de Similitud")
 
-if st.button("🔍 Calcular Similitud", type="primary"):
-    with st.spinner("Calculando similitudes..."):
-        abstract1 = art1['abstract']
-        abstract2 = art2['abstract']
-        
-        resultados = {}
-        
-        # Algoritmos clásicos
-        resultados['Jaccard'] = jaccard_similarity(abstract1, abstract2)
-        resultados['Coseno (TF-IDF)'] = cosine_tfidf_similarity(abstract1, abstract2)
-        resultados['Levenshtein'] = levenshtein_similarity(abstract1, abstract2)
-        resultados['N-gramas'] = ngram_overlap_similarity(abstract1, abstract2)
-        
-        # Modelos de IA
-        if distilbert_model is not None:
-            try:
-                resultados['DistilBERT'] = distilbert_similarity(abstract1, abstract2, distilbert_model)
-            except Exception as e:
-                st.warning(f"Error con DistilBERT: {e}")
-                resultados['DistilBERT'] = None
-        else:
-            resultados['DistilBERT'] = None
+if len(indices_seleccionados) < 2:
+    st.warning("⚠️ Debes seleccionar al menos 2 artículos para comparar")
+else:
+    if st.button("🔍 Calcular Similitud", type="primary"):
+        with st.spinner("Calculando similitudes entre todos los artículos..."):
+            # Obtener abstracts de los artículos seleccionados
+            abstracts_seleccionados = [df.iloc[idx]['abstract'] for idx in indices_seleccionados]
+            titulos_seleccionados = [df.iloc[idx]['titulo'][:50] + "..." if len(df.iloc[idx]['titulo']) > 50 
+                                    else df.iloc[idx]['titulo'] for idx in indices_seleccionados]
             
-        if sbert_model is not None:
-            try:
-                resultados['Sentence-BERT'] = sbert_similarity(abstract1, abstract2, sbert_model)
-            except Exception as e:
-                st.warning(f"Error con Sentence-BERT: {e}")
-                resultados['Sentence-BERT'] = None
-        else:
-            resultados['Sentence-BERT'] = None
-        
-        # Mostrar resultados
-        df_resultados = pd.DataFrame([
-            {"Algoritmo": k, "Similitud": f"{v:.4f}" if v is not None else "N/A", "Valor": v if v is not None else 0}
-            for k, v in resultados.items()
-        ])
-        
-        st.dataframe(df_resultados[["Algoritmo", "Similitud"]], use_container_width=True)
-        
-        # Gráfico de barras
-        fig, ax = plt.subplots(figsize=(10, 6))
-        algoritmos = [k for k, v in resultados.items() if v is not None]
-        valores = [v for k, v in resultados.items() if v is not None]
-        
-        bars = ax.barh(algoritmos, valores, color=sns.color_palette("viridis", len(algoritmos)))
-        ax.set_xlabel("Similitud", fontsize=12)
-        ax.set_title("Comparación de Algoritmos de Similitud", fontsize=14, fontweight='bold')
-        ax.set_xlim(0, 1)
-        
-        # Agregar valores en las barras
-        for i, (bar, val) in enumerate(zip(bars, valores)):
-            ax.text(val + 0.01, bar.get_y() + bar.get_height()/2,
-                   f'{val:.4f}', va='center', fontsize=10)
-        
-        plt.tight_layout()
-        st.pyplot(fig)
-        
-        # Explicación
-        with st.expander("📖 Explicación de los Algoritmos"):
-            st.markdown("""
-            **Jaccard**: Mide el solapamiento de conjuntos de palabras. Fórmula: |A ∩ B| / |A ∪ B|
+            # Lista de algoritmos a calcular
+            algoritmos = ['Jaccard', 'Coseno (TF-IDF)', 'Levenshtein', 'N-gramas']
+            if distilbert_model is not None:
+                algoritmos.append('DistilBERT')
+            if sbert_model is not None:
+                algoritmos.append('Sentence-BERT')
             
-            **Coseno (TF-IDF)**: Calcula la similitud del coseno entre vectores TF-IDF de los textos.
+            # Calcular matrices de similitud para cada algoritmo
+            matrices_resultados = {}
             
-            **Levenshtein**: Mide la distancia de edición (caracteres a cambiar). Normalizada a 0-1.
+            n = len(abstracts_seleccionados)
             
-            **N-gramas**: Compara secuencias de n caracteres. Mide solapamiento de n-gramas.
+            # Jaccard
+            matriz_jaccard = np.zeros((n, n))
+            for i in range(n):
+                for j in range(n):
+                    if i == j:
+                        matriz_jaccard[i, j] = 1.0
+                    else:
+                        matriz_jaccard[i, j] = jaccard_similarity(abstracts_seleccionados[i], abstracts_seleccionados[j])
+            matrices_resultados['Jaccard'] = matriz_jaccard
             
-            **DistilBERT**: Modelo de IA basado en BERT que captura similitud semántica.
+            # Coseno TF-IDF
+            vectorizer = TfidfVectorizer().fit(abstracts_seleccionados)
+            tfidf_matrix = vectorizer.transform(abstracts_seleccionados)
+            matrices_resultados['Coseno (TF-IDF)'] = cosine_similarity(tfidf_matrix)
             
-            **Sentence-BERT**: Modelo optimizado para similitud semántica entre oraciones.
-            """)
+            # Levenshtein
+            matriz_lev = np.zeros((n, n))
+            for i in range(n):
+                for j in range(n):
+                    if i == j:
+                        matriz_lev[i, j] = 1.0
+                    else:
+                        matriz_lev[i, j] = levenshtein_similarity(abstracts_seleccionados[i], abstracts_seleccionados[j])
+            matrices_resultados['Levenshtein'] = matriz_lev
+            
+            # N-gramas
+            matriz_ng = np.zeros((n, n))
+            for i in range(n):
+                for j in range(n):
+                    if i == j:
+                        matriz_ng[i, j] = 1.0
+                    else:
+                        matriz_ng[i, j] = ngram_overlap_similarity(abstracts_seleccionados[i], abstracts_seleccionados[j])
+            matrices_resultados['N-gramas'] = matriz_ng
+            
+            # DistilBERT
+            if distilbert_model is not None:
+                try:
+                    embeddings_distil = distilbert_model.encode(abstracts_seleccionados)
+                    matrices_resultados['DistilBERT'] = cosine_similarity(embeddings_distil)
+                except Exception as e:
+                    st.warning(f"Error con DistilBERT: {e}")
+            
+            # Sentence-BERT
+            if sbert_model is not None:
+                try:
+                    embeddings_sbert = sbert_model.encode(abstracts_seleccionados)
+                    matrices_resultados['Sentence-BERT'] = cosine_similarity(embeddings_sbert)
+                except Exception as e:
+                    st.warning(f"Error con Sentence-BERT: {e}")
+            
+            # Mostrar resultados
+            st.success(f"✅ Similitud calculada para {n} artículos")
+            
+            # Mostrar matrices de similitud
+            st.markdown("### 📊 Matrices de Similitud")
+            
+            for algo_name, matriz in matrices_resultados.items():
+                st.markdown(f"#### {algo_name}")
+                
+                # Crear DataFrame con la matriz
+                df_matriz = pd.DataFrame(
+                    matriz,
+                    index=[f"Art {i+1}" for i in range(n)],
+                    columns=[f"Art {i+1}" for i in range(n)]
+                )
+                
+                # Mostrar matriz
+                st.dataframe(df_matriz.style.format("{:.4f}").background_gradient(cmap='viridis', vmin=0, vmax=1), 
+                           use_container_width=True)
+                
+                # Visualización de heatmap
+                fig, ax = plt.subplots(figsize=(10, 8))
+                sns.heatmap(matriz, annot=True, fmt='.3f', cmap='viridis', 
+                           xticklabels=[f"Art {i+1}" for i in range(n)],
+                           yticklabels=[f"Art {i+1}" for i in range(n)],
+                           vmin=0, vmax=1, ax=ax, cbar_kws={'label': 'Similitud'})
+                ax.set_title(f"Matriz de Similitud - {algo_name}", fontsize=14, fontweight='bold')
+                plt.tight_layout()
+                st.pyplot(fig)
+                plt.close()
+            
+            # Comparación de algoritmos (promedio de similitudes)
+            st.markdown("### 📈 Comparación de Algoritmos")
+            
+            # Calcular promedios (excluyendo diagonal)
+            promedios = {}
+            for algo_name, matriz in matrices_resultados.items():
+                # Obtener solo la parte superior (sin diagonal)
+                mask = np.triu(np.ones_like(matriz, dtype=bool), k=1)
+                valores = matriz[mask]
+                promedios[algo_name] = np.mean(valores) if len(valores) > 0 else 0
+            
+            df_promedios = pd.DataFrame([
+                {"Algoritmo": k, "Promedio": f"{v:.4f}", "Valor": v}
+                for k, v in promedios.items()
+            ])
+            df_promedios = df_promedios.sort_values("Valor", ascending=False)
+            
+            st.dataframe(df_promedios[["Algoritmo", "Promedio"]], use_container_width=True)
+            
+            # Gráfico de barras de promedios
+            fig, ax = plt.subplots(figsize=(10, 6))
+            algoritmos_ordenados = df_promedios["Algoritmo"].tolist()
+            valores_promedios = df_promedios["Valor"].tolist()
+            
+            bars = ax.barh(algoritmos_ordenados, valores_promedios, color=sns.color_palette("viridis", len(algoritmos_ordenados)))
+            ax.set_xlabel("Similitud Promedio", fontsize=12)
+            ax.set_title("Comparación de Algoritmos - Promedio de Similitud", fontsize=14, fontweight='bold')
+            ax.set_xlim(0, 1)
+            
+            # Agregar valores en las barras
+            for bar, val in zip(bars, valores_promedios):
+                ax.text(val + 0.01, bar.get_y() + bar.get_height()/2,
+                       f'{val:.4f}', ha='left', va='center', fontsize=10)
+            
+            plt.tight_layout()
+            st.pyplot(fig)
+            plt.close()
+            
+            # Explicación
+            with st.expander("📖 Explicación de los Algoritmos"):
+                st.markdown("""
+                **Jaccard**: Mide el solapamiento de conjuntos de palabras. Fórmula: |A ∩ B| / |A ∪ B|
+                
+                **Coseno (TF-IDF)**: Calcula la similitud del coseno entre vectores TF-IDF de los textos.
+                
+                **Levenshtein**: Mide la distancia de edición (caracteres a cambiar). Normalizada a 0-1.
+                
+                **N-gramas**: Compara secuencias de n caracteres. Mide solapamiento de n-gramas.
+                
+                **DistilBERT**: Modelo de IA basado en BERT que captura similitud semántica.
+                
+                **Sentence-BERT**: Modelo optimizado para similitud semántica entre oraciones.
+                
+                **Nota**: Los valores en la diagonal son 1.0 (similitud consigo mismo). 
+                La matriz es simétrica (similitud(A,B) = similitud(B,A)).
+                """)
 
 st.markdown("---")
 st.info("💡 **Nota**: Los modelos de IA pueden tardar en cargar la primera vez. Se cargan automáticamente al iniciar la aplicación.")
