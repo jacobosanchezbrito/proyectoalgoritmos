@@ -12,7 +12,7 @@ sentence-transformers>=2.2.0
 python-Levenshtein>=0.21.0
 
 # Análisis bibliométrico
-bibtexparser>=2.0.0
+bibtexparser>=1.4.3
 
 # Visualización
 matplotlib>=3.7.0
@@ -34,6 +34,5 @@ Pillow>=10.0.0
 # APIs y descarga (Requerimiento 1)
 requests>=2.31.0
 
-# Utilidades
-pathlib2>=2.3.7; python_version < "3.4"
+# Utilidades (pathlib2 no necesario en Python 3.4+)
 
