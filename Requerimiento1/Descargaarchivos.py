@@ -6,7 +6,29 @@ BASE_DIR = Path(__file__).resolve().parent
 OUT_DIR = BASE_DIR / "ArchivosDescargados"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-API_KEY = "302399c7683708da34f3049c80edb69a"
+# Intentar obtener la clave API desde variables de entorno o Streamlit secrets
+import os
+
+def get_api_key():
+    """Obtiene la clave API desde Streamlit secrets, variable de entorno o valor por defecto."""
+    # Primero intentar desde Streamlit secrets (si está disponible)
+    try:
+        import streamlit as st
+        if hasattr(st, 'secrets') and 'ELSEVIER_API_KEY' in st.secrets:
+            return st.secrets['ELSEVIER_API_KEY']
+    except (ImportError, AttributeError, RuntimeError):
+        pass
+    
+    # Si Streamlit no está disponible, usar variable de entorno
+    api_key = os.getenv("ELSEVIER_API_KEY")
+    if api_key:
+        return api_key
+    
+    # Valor por defecto (fallback)
+    return "302399c7683708da34f3049c80edb69a"
+
+API_KEY = get_api_key()
+
 ELSEVIER_HEADERS = {
     "X-ELS-APIKey": API_KEY,
     "Accept": "application/json"
